@@ -1,0 +1,20 @@
+{
+  "name": "monthlies",
+  "version": "0.0.1",
+  "description": "microsite for codebar monthlies",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "airtable": "^0.5.2",
+    "mustache-express": "^1.2.5",
+    "memory-cache": "^0.2.0",
+    "moment": "^2.20.1"
+  },
+  "engines": {
+    "node": "8.x"
+  },
+  "license": "MIT"
+}

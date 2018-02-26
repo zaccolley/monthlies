@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>codebar Monthlies</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#333">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fcodebarcircle.png?1515531911438">
+  <link rel="icon" type="image/x-icon" href="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Ffavicon.ico?1513284861958" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@codebar" />
+  <meta property="og:url" content="http://monthlies.glitch.me" />
+  <meta property="og:title" content="codebar Monthlies {{event.name}} {{event.emoji}}" />
+  <meta property="og:description" content="{{tagline}}" />
+  <meta property="og:image" content="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Ffallcodebar.png?1511486510127" />
+  
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header>
+  <div class="wrapper">
+    <h1 class="title">
+      codebar Monthlies
+    </h1>
+    
+    <a class="hashtag" href="https://twitter.com/search?q={{hashtag}}">
+      <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Ftwitter%20(2).svg?1511484616918" alt="" />
+      #{{hashtag}}
+    </a>
+  </div>
+  </header>
+  
+  <main>
+  <div class="wrapper">
+    <p class="lead">
+      Monthlies is a talk night for <a href="https://codebar.io">the codebar community</a> on the last monday of every month.
+    </p>
+    
+    {{^event}}
+      <a class="button" href="https://codebar.io/member/new">
+        Sign-up to codebar
+        <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fcodebarsquare%20(1).svg?1511484617048" alt="" />
+      </a>
+      
+      <p>Sign-up to the London chapter of codebar to get notified of new Monthlies.</p>
+    {{/event}}
+      
+
+    {{#event}}
+      {{#event.cancelled}}
+        <strong class="event-cancelled-message">This evening's event is cancelled.</strong>
+      {{/event.cancelled}}
+      
+      <h2>
+        {{event.name}} <span aria-hidden>{{event.emoji}}</span>
+      </h2>
+
+      <p>{{tagline}}</p>
+
+      <ul>
+        <li>Free <strong>food and drinks</strong> as you turn up</li>
+        <li>Breaks between talks</li>
+        <li>Finish around 20:30</li>
+        <li>Then (optionally) come hang out after</li>
+      </ul>
+      
+      
+      <a class="button" href="{{event.link}}">
+        {{#event.dateTicketsAvailable}}
+          Tickets available at {{event.dateTicketsAvailable}}
+        {{/event.dateTicketsAvailable}}
+        {{^event.dateTicketsAvailable}}
+          Register
+        {{/event.dateTicketsAvailable}}
+        <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fcodebarsquare%20(1).svg?1511484617048" alt="" />
+      </a>
+
+      <section aria-labelledby="date-and-time">
+        <h3 id="date-and-time">
+          Date and Time
+        </h3>
+
+        <p>
+          <strong>Monday {{event.name}}</strong>
+          <br />
+          18:30 - 20:30 GMT
+        </p>
+
+        {{#calendarData}}
+          <a class="button button--small" href="{{calendarData.google}}" target="_blank" rel="noopener">
+            Add to Google Calendar
+            <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fgoogle-calendar-min.png?1511484445312" aria-hidden />
+          </a>
+
+          <a class="button button--small" href="{{calendarData.ical}}" target="_blank" rel="noopener">
+            Add to iCal Calendar
+            <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fical-min.png?1511484445433" aria-hidden />  
+          </a>
+        {{/calendarData}}
+      </section>
+
+      <section aria-labelledby="location">
+        <h3 id="location">
+          Location
+        </h3>
+
+        <p>
+          <address>
+            <strong>
+              {{event.venue.name}}
+            </strong>
+            {{#event.venue.address.length}}
+              {{#event.venue.address}}
+                <br /> {{.}} 
+              {{/event.venue.address}}
+            {{/event.venue.address.length}}
+          </address>
+
+          {{#directionLinks}}
+            <a class="button" href="{{directionLinks.google}}">
+              View on Google Maps
+              <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fgoogle%20(1).svg?1511484617195" alt="" />
+            </a>
+
+            <a class="button" href="{{directionLinks.citymapper}}">
+              <span>Directions via Citymapper</span>
+              <img src="https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fcitymapper.svg?1511477299154" alt="" />
+            </a>
+          {{/directionLinks}}
+        </p>
+      </section>
+
+      <section aria-labelledby="schedule">
+        <h3 id="schedule">
+          Schedule
+        </h3>
+
+        {{#event.talks.length}}
+          <h4>Talks</h4>
+
+          {{#event.talks}}
+            <h5 class="schedule__heading">
+              <strong>
+                {{#people}}
+                  <a href="{{link}}">
+                    {{name}}
+                  </a>
+                  <small>({{pronouns}})</small>
+                {{/people}}
+              </strong>
+
+              {{talk.name}}
+            </h5>
+
+            {{#talk.summary.length}}
+            {{#talk.summary}}
+              <p>{{.}}</p>
+            {{/talk.summary}}
+            {{/talk.summary.length}}
+          {{/event.talks}}
+        {{/event.talks.length}}
+
+
+        {{#event.panel}}
+          <h4>Panel</h4>
+
+          <h5 class="schedule__heading">
+            {{name}}
+          </h5>
+
+          <ul>
+            {{#hosts.length}}
+            {{#hosts}}
+              <li>
+                <a href="{{link}}">
+                  {{name}} <small>(Host)</small>
+                </a>
+                <small>({{pronouns}})</small>
+              </li>
+            {{/hosts}}
+            {{/hosts.length}}
+
+            {{#members.length}}
+            {{#members}}
+              <li>
+                <a href="{{link}}">
+                  {{name}}
+                </a>
+                <small>({{pronouns}})</small>
+              </li>
+            {{/members}}
+            {{/members.length}}
+          </ul>
+
+          {{#summary.length}}
+          {{#summary}}
+            <p>{{.}}</p>
+          {{/summary}}
+          {{/summary.length}}
+        {{/event.panel}}
+      </section>
+  
+    {{/event}}
+    
+    {{#pastEvents.length}}
+      <h2>
+        Previous monthlies
+      </h2>
+
+      <ul>
+      {{#pastEvents}}
+        <li>
+          <a href="{{link}}">{{name}}
+          {{#emoji}}
+            <span aria-hidden>{{emoji}}</span>
+          {{/emoji}}
+          </a>
+        </li>
+      {{/pastEvents}}
+      </ul>
+    {{/pastEvents.length}}
+    
+    <h2>
+      Speaking at monthlies
+    </h2>
+    
+    <p>
+      Wanna speak at monthlies?
+    </p>
+    
+    <p>Go ahead and 
+      <a href="https://airtable.com/shrnWQ7RxRi94x6Tp">submit a talk</a>.
+    </p>
+    
+    <h2>
+      Hosting monthlies
+    </h2>
+    
+    <p>
+      Do you have space for us?
+    </p>
+    
+    <p>
+      Read <a href="https://github.com/codebar/playbooks/blob/master/monthlies.md#venue-guidelines">how we run monthlies</a> and then <a href="mailto:monthlies@codebar.io">email us at monthlies@codebar.io</a>.
+    </p>
+  </div>
+  </main>
+</body>
+</html>
