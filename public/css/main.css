@@ -1,0 +1,231 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+/*   box-sizing: border-box; */
+}
+
+* + * {
+  margin-bottom: 1em;
+}
+
+p {
+  line-height: 1.25em;
+}
+
+ul, ol {
+  padding-left: 0.75em;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+}
+
+li::before {
+  content: '•';
+  margin-right: 0.5em;
+  color: #666;
+}
+
+body {
+  margin: 0;
+  background-color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 20px;
+  color: hsl(0, 0%, 80%);
+}
+
+body::before,
+body::after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #41af74, #f66b90, #5573bf);
+}
+
+a {
+  color: #98B5FD;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+  color: hsl(0, 0%, 95%);
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.65em;
+}
+
+h4 {
+  color: hsl(0, 0%, 90%);
+  font-size: 1.45em;
+  line-height: 1em;
+  margin-top: 1em;
+}
+
+h5 {
+  font-size: 1.25em
+}
+
+.schedule__heading strong {
+  color: hsl(0, 0%, 80%);
+  display: block;
+  font-size: 0.95em;
+  margin-bottom: 0.25em;
+}
+
+.wrapper {
+  max-width: 30em; /* fallback */
+  max-width: 60ch;
+  padding: 1em;
+}
+
+section {
+  border-top: 4px solid #333;
+  margin-top: 1.5em;
+}
+
+address {
+  background: #333;
+  padding: 1em;
+  border-radius: 5px;
+  font-style: normal;
+  margin-bottom: 1.75em;
+}
+
+header {
+  background: #333;
+}
+
+header > .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+  height: 1em;
+  font-size: 1.5em;
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-image: url('https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fcodebarlogo.svg?1511474510364');
+}
+
+.hashtag {
+  display: flex;
+  align-content: center;
+  margin: 0;
+  border: none;
+  color: hsl(0, 0%, 80%);
+  font-size: 0.85em;
+}
+
+.hashtag img {
+  height: 1em;
+  margin-right: 0.25em;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75em 1em;
+  margin: 1em 0;
+  
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 600;
+  color: #111;
+  
+  background: #F9F9F9;
+  border-radius: 1.25em;
+}
+
+.button--small {
+  font-size: 0.85em;
+}
+
+.button > img {
+  max-width: 1em;
+  margin: 0;
+}
+
+.codebar-illustration {
+  width: 80%;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+.codebar-illustration__image {
+  max-width: 100%;
+}
+
+.codebar-illustration__credit {
+  display: block;
+  font-size: 0.65em;
+  text-align: center;
+  color: #afafaf;
+}
+
+.lead {
+  font-size: 1.15em;
+  color: hsl(0, 0%, 80%);
+}
+
+.lead a {
+  color: inherit;
+}
+
+.event-cancelled-message {
+  background: white;
+  padding: 0.25em 0.5em;
+  color: #222222;
+  display: block;
+  font-size: 2em;
+  margin-top: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 0 10px #333, 0 0 0 15px #f66b90;
+}
+
+.date-tickets-available {
+  font-size: 2em;
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: 24px;
+  }
+  
+  .title {
+    font-size: 2em;
+  }
+  
+  .button {
+    max-width: 50%;
+  }
+  
+  .codebar-illustration {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 26px;
+  }
+  
+  .codebar-illustration {
+    width: 40%;
+  }
+}

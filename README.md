@@ -1,3 +1,1 @@
-# monthlies
-
-microsite for codebar Monthlies
+# monthlies site

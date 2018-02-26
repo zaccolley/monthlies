@@ -1,0 +1,13 @@
+{
+  "name": "codebar Monthlies",
+  "short_name": "Monthlies",
+  "background_color": "#222",
+  "theme_color": "#222",
+  "icons": [
+    {
+      "src": "https://cdn.glitch.com/050638d9-0579-4ed3-a257-70d8d1e94935%2Fcodebarcircle.png?1515531911438",
+      "sizes": "640x640",
+      "type": "image/png"
+    }
+  ]
+}
